@@ -27,5 +27,8 @@ Since Microsoft hasn't worked on CMD in years webScreen doesn't work there that 
 * webScreen can't resize vertically.
 * No mouse support.
 ## Todo
+* web interface
+* setup tool
+* add to npm
 ## License
-[MIT](License)
+[MIT](LICENSE)
