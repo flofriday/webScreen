@@ -8,7 +8,7 @@ Monitor your web right from the terminal.
 * Save the downloaded values in .csv or .txt
 * Cross Platform (Windows, macOS, GNU/Linux, FreeBSD, NetBSD, OpenBSD)
 ## Install and Setup
-1. [Download](https://github.com/flofriday/webScreen/archive/master.zip "Click to download") webScreen and unzip .
+1. [Download](https://github.com/flofriday/webScreen/releases/download/0.3.0/webScreen0-3-0.zip "Click to download") webScreen and unzip.
 2. [Download](https://nodejs.org/en/download/ "Go to www.nodejs.org") node.js if you haven't done yet.
 3. Open items.json with a text editor and configure it. Instructions [here](doc/items-json.md).
 4. Open config.json with a text editor and configure it. Instructions [here](doc/config-json.md).

@@ -43,7 +43,6 @@ function getDDMMYYYY()
 function writeCSV(inList)
 {
   // Get the current time
-  var d = new Date();
   var time = getHHMM();
 
   // Generate the output string
@@ -87,7 +86,6 @@ function writeCSV(inList)
 function writeTXT(inList)
 {
   // Get the current time
-  var d = new Date();
   var time = getHHMM();
 
   // Generate the output string
