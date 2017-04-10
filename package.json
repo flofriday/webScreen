@@ -1,0 +1,20 @@
+{
+  "name": "webscreen",
+  "version": "0.3.0",
+  "description": "Monitor your web right from the terminal.",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js"
+  },
+  "author": "flofriday",
+  "license": "MIT",
+  "dependencies": {
+    "blessed": "^0.1.81",
+    "cheerio": "^0.22.0",
+    "tinyreq": "^3.2.1"
+  },
+  "repository" :
+  { "type" : "git",
+    "url" : "https://github.com/flofriday/webScreen"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "itemlist":[
+
+
+    {
+      "name": "Weather NYC",
+      "url": "https://weather.com/weather/tenday/l/New+York+NY+USNY0996:1:US",
+      "selector": "#twc-scrollabe > table > tbody > tr:nth-child(1) > td.description > span"
+    },
+
+    {
+      "name": "Temperature NYC",
+      "url": "https://weather.com/weather/tenday/l/New+York+NY+USNY0996:1:US",
+      "selector": "#twc-scrollabe > table > tbody > tr:nth-child(1) > td.temp > div > span:nth-child(3)"
+    },
+
+    {
+      "name": "Bitcoin",
+      "url": "http://www.coindesk.com/price/",
+      "selector": "#bpiDisplay > div.price-container.price-small.price-eur > div"
+    },
+
+    {
+      "name": "Worked on Linux last Month",
+      "url": "https://github.com/torvalds/linux/pulse/monthly",
+      "selector": "#js-repo-pjax-container > div.container.new-discussion-timeline.experiment-repo-nav > div.repository-content > div.authors-and-code > div.section.diffstat-summary > strong:nth-child(1)"
+    }
+
+
+  ]
+}
