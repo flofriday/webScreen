@@ -13,7 +13,7 @@
     "accentcolor": "#009688",
 
     "//": "Turn this of when you are using windows and the app looks broken.",
-    "showborder": true
+    "showborder": false
     },
 
 
@@ -21,9 +21,11 @@
     "datafile":
     {
       "enable": true,
-      "path": "myData.csv",
-      "format": "csv",
-      "csvdevider": ";"
+      "path": "myData.json",
+      "format": "json",
+      "csvdevider": ";",
+      "dateformat": "MDY",
+      "dateseparator": "/"
     }
 
   }

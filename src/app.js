@@ -27,6 +27,9 @@ file.enable = config.datafile.enable;
 file.format = config.datafile.format;
 file.csvDevider = config.datafile.csvdevider;
 file.path = config.datafile.path;
+file.webScreenVersion = app.version;
+file.dateFormat = config.datafile.dateformat;
+file.dateSeparator = config.datafile.dateseparator;
 
 
 

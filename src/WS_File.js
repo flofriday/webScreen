@@ -4,6 +4,9 @@ const fs = require('fs');
 exports.enable = false;
 exports.format = 'csv';
 exports.csvDevider = ',';
+exports.dateFormat = 'DMY';
+exports.dateSeparator = '.';
+exports.webScreenVersion = '';
 exports.path = 'webScreenData.csv';
 
 
@@ -15,6 +18,7 @@ exports.write = function(inList)
   //select the file format
   if (exports.format === 'csv') {writeCSV(inList);}
   else if (exports.format === 'txt') {writeTXT(inList);}
+  else if (exports.format === 'json') {writeJSON(inList);}
 }
 
 
@@ -27,26 +31,38 @@ function checkTime(i)
   return (i < 10) ? "0" + i : i;
 }
 
-function getHHMM()
+
+function getTime()
 {
   var d = new Date();
   return checkTime(d.getHours()) + ':' + checkTime(d.getMinutes());
 }
 
-function getDDMMYYYY()
+
+function getDate()
 {
   var d = new Date();
-  return checkTime(d.getDate()) + '.' + checkTime(d.getMonth() + 1) + '.' + checkTime(d.getFullYear());
+  var output = "";
+
+  for (var i = 0; i < 3; i++)
+  {
+    if (exports.dateFormat.charAt(i) == 'D') {output += checkTime(d.getDate());}
+    else if (exports.dateFormat.charAt(i) == 'M') {output += checkTime(d.getMonth() + 1);}
+    else if (exports.dateFormat.charAt(i) == 'Y') {output += checkTime(d.getFullYear());}
+    if (i < 2) {output += exports.dateSeparator;}
+  }
+
+  return output;
+  //return checkTime(d.getDate()) + exports.dateSeparator + checkTime(d.getMonth() + 1) + exports.dateSeparator + checkTime(d.getFullYear());
 }
 
 
 function writeCSV(inList)
 {
   // Get the current time
-  var time = getHHMM();
+  var output = getDate() + ' ' + getTime();
 
   // Generate the output string
-  var output = time;
   for (var i = 0; i < inList.length; i++)
   {
     output += exports.csvDevider + inList[i].value;
@@ -66,7 +82,7 @@ function writeCSV(inList)
     if (fs.existsSync(exports.path) === true) {firstLine = "\n\n\n"} // Ask the filesystem
 
     // Generate the custom header
-    firstLine += "webScreen Data File" + exports.csvDevider + exports.csvDevider + "Date: " + getDDMMYYYY() + " [DD.MM.YYYY]\nTime";
+    firstLine += "webScreen Data File" + exports.csvDevider + "webScreen Version: " + exports.webScreenVersion + "\nTime";
     for (var i = 0; i < inList.length; i++)
     {
       firstLine += exports.csvDevider + inList[i].name;
@@ -86,10 +102,9 @@ function writeCSV(inList)
 function writeTXT(inList)
 {
   // Get the current time
-  var time = getHHMM();
+  var output = getDate() + ' ' + getTime();
 
   // Generate the output string
-  var output = time;
   for (var i = 0; i < inList.length; i++)
   {
     output += "\t" + inList[i].value;
@@ -109,7 +124,7 @@ function writeTXT(inList)
     if (fs.existsSync(exports.path) === true) {firstLine = "\n\n\n"} // Ask the filesystem
 
     // Generate the custom header
-    firstLine += "webScreen Data File" + "\t\t" + "Date: " + getDDMMYYYY() + " [DD.MM.YYYY]\nTime";
+    firstLine += "webScreen Data File" + "\t" + "+ webScreen Version: " + exports.webScreenVersion + "\nTime";
     for (var i = 0; i < inList.length; i++)
     {
       firstLine += "\t" + inList[i].name;
@@ -123,4 +138,35 @@ function writeTXT(inList)
   fs.appendFile(exports.path, output, (err) => {
     if (err) throw err;
   });
+}
+
+
+function writeJSON(inList)
+{
+  if (checkedForFile === false && fs.existsSync(exports.path) === false)
+  {
+    var obj = {
+      table: []
+    };
+    var json = JSON.stringify(obj);
+    fs.writeFileSync(exports.path, json, 'utf8');
+  }
+
+
+    fs.readFile(exports.path, function(err,content){
+      if(err) throw err;
+      var parseJson = JSON.parse(content);
+
+      var newOutput = {};
+      newOutput["time"] = new Date().getTime();
+      for (var i=0; i < inList.length; i++){
+        newOutput[inList[i].name] = inList[i].value;
+      }
+
+      parseJson.table.push(newOutput);
+
+      fs.writeFile(exports.path ,JSON.stringify(parseJson),function(err){
+        if(err) throw err;
+      })
+    })
 }

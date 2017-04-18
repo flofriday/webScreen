@@ -3,3 +3,4 @@ npm-debug.log
 node_modules/
 myData.csv
 myData.txt
+myData.json
