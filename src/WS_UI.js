@@ -197,15 +197,15 @@ var itemList = blessed.list({
       bg: exports.accentColor
     },
     scrollbar: {
-      bg: 'red',
-      fg: 'blue'
+      bg: 'grey',
+      fg: 'white'
     }
   },
   scrollbar: {
     ch: ' ',
     track: {
-      bg: 'yellow',
-      fg: 'red'
+      bg: 'grey',
+      fg: 'white'
     }
   }
 });

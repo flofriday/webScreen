@@ -1,23 +1,16 @@
 {
-  "//": "The reloadtime is in seconds. By default webScreen reloads the values every minute.",
   "reloadtime": 60,
 
 
-  "//": "This are all settings for the User Interface",
   "interface":{
 
-    "//": "The value of the color can either be default(terminal default color), red, green etc, or a hex color",
     "fontcolor": "default",
     "backgroundcolor": "default",
     "bordercolor": "default",
     "accentcolor": "#009688",
-
-    "//": "Turn this of when you are using windows and the app looks broken.",
     "showborder": false
     },
 
-
-    "//": "This are all settings for saving the values in a file",
     "datafile":
     {
       "enable": true,
@@ -27,5 +20,4 @@
       "dateformat": "MDY",
       "dateseparator": "/"
     }
-
   }

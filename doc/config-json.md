@@ -14,5 +14,34 @@ Colors can be the names of any of the 16 basic terminal colors, along with hex v
 ## datafile
 * **enable** - If the downloaded values should be saved in a file or not. 
 * **path** - The path and filename.
-* **format** - In which format the values should be saved. Currently `txt` and `csv` are supported.
+* **format** - In which format the values should be saved. Currently `txt`, `csv` and `json` are supported.
 * **csvdevider** - If the format is `csv` you can enter here a character which will be used to divide the single values from each other.
+* **dateformat** - In which format the date should be. `MDY` for an US fromatet date MM/DD/YYYY.
+* **dateseparator** - The character which devides the day, month and year from each other. `/` for US fromatet date MM/DD/YYYY.
+
+## example
+```json
+{
+  "reloadtime": 60,
+
+
+  "interface":{
+
+    "fontcolor": "default",
+    "backgroundcolor": "default",
+    "bordercolor": "default",
+    "accentcolor": "#009688",
+    "showborder": false
+    },
+
+    "datafile":
+    {
+      "enable": true,
+      "path": "myData.csv",
+      "format": "csv",
+      "csvdevider": ";",
+      "dateformat": "MDY",
+      "dateseparator": "/"
+    }
+  }
+```

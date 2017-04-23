@@ -1,7 +1,6 @@
 {
   "itemlist":[
 
-
     {
       "name": "Weather NYC",
       "url": "https://weather.com/weather/tenday/l/New+York+NY+USNY0996:1:US",
@@ -25,7 +24,6 @@
       "url": "https://github.com/torvalds/linux/pulse/monthly",
       "selector": "#js-repo-pjax-container > div.container.new-discussion-timeline.experiment-repo-nav > div.repository-content > div.authors-and-code > div.section.diffstat-summary > strong:nth-child(1)"
     }
-
 
   ]
 }
