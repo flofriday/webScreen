@@ -3,8 +3,9 @@ Monitor your web right from the terminal.
 ![Screenshot](res/Screenshot.png)
 
 
-## Features 
+## Features
 * Customizable UI
+* Mouse Support
 * Save the downloaded values in .csv or .txt
 * Cross Platform (Windows, macOS, GNU/Linux, FreeBSD, NetBSD, OpenBSD)
 ## Install and Setup
@@ -23,12 +24,9 @@ Monitor your web right from the terminal.
 ### Windows Features
 Since Microsoft hasn't worked on CMD in years webScreen doesn't work there that well:
 ![Screenshot](res/Windows-Bug.png)
-* Some CMD fonts don't work. In that case you have to disable the borders in [config.json](doc/config-json.md).
+* Most CMD fonts don't work. In that case you have to disable the borders in [config.json](doc/config-json.md).
 * webScreen can't resize vertically.
 * No mouse support.
-## Todo
-* web interface
-* setup tool
-* add to npm
+
 ## License
 [MIT](LICENSE)

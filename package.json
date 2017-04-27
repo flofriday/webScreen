@@ -11,10 +11,11 @@
   "dependencies": {
     "blessed": "^0.1.81",
     "cheerio": "^0.22.0",
+    "opn": "^4.0.2",
     "tinyreq": "^3.2.1"
   },
-  "repository" :
-  { "type" : "git",
-    "url" : "https://github.com/flofriday/webScreen"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/flofriday/webScreen"
   }
 }

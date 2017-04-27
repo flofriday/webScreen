@@ -2,7 +2,7 @@
 
 
 var blessed = require('blessed');
-
+var opn = require('opn');
 
 // All export function and variables
 exports.render = function() { screen.render(); isRenderAllowed = 1;};
@@ -55,6 +55,8 @@ exports.updateColors = function ()
   loadingIndicator.style.fg = exports.fontColor;
   loadingIndicator.style.bg = exports.backColor;
 
+  footerLeft.style.fg = exports.fontColor;
+  footerLeft.style.bg = exports.backColor;
   footerRight.style.fg = exports.fontColor;
   footerRight.style.bg = exports.backColor;
 }
@@ -231,6 +233,8 @@ var loadingIndicator = blessed.box({
 /*
 * Draw the footer
 */
+
+// The left footer
 const commands = {
   'esc': 'Quit',
   'down': 'Scroll Down',
@@ -242,17 +246,28 @@ for (const c in commands) {
   const command = commands[c]
   text += `  {inverse}${c}{/inverse} ${command}`
 }
-text += '{|}by flofriday   '
-const footerRight = blessed.box({
-  width: '100%',
+const footerLeft = blessed.box({
+  width: 'shrink',
   top: '100%-1',
   left: 1,
   tags: true,
   fg: exports.fontColor,
   bg: exports.backColor
 })
-footerRight.setContent(text);
+footerLeft.setContent(text);
 
+// the right footer
+const footerRight = blessed.box({
+  mouse: true,
+  keys: true,
+  width: 'shrink',
+  top: '100%-1',
+  content: 'by flofriday',
+  right: 3,
+  tags: true,
+  fg: exports.fontColor,
+  bg: exports.backColor
+})
 
 
 // Append objects to screen
@@ -261,7 +276,8 @@ screen.append(menuBar);
 screen.append(menuBarLeft);
 screen.append(menuBarMiddle);
 screen.append(menuBarRight);
-screen.append(footerRight)
+screen.append(footerLeft);
+screen.append(footerRight);
 screen.append(itemList);
 screen.append(loadingIndicator);
 
@@ -269,6 +285,20 @@ screen.append(loadingIndicator);
 // Focus the itemlist
 itemList.focus();
 
+
+// flofriday clicked
+footerRight.on('click', function(data) {
+  opn('https://github.com/flofriday/');
+});
+
+footerRight.on('mouseover', function(data) {
+  footerRight.setContent('lolollllddll');
+  if (isRenderAllowed) { screen.render(); }
+});
+footerRight.on('mouseout', function(data) {
+  footerRight.setContent('by flofriday');
+  if (isRenderAllowed) { screen.render(); }
+});
 
 // Call the function if F5 is pressed
 screen.key('f5', function(ch, key) {
