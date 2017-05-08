@@ -1,12 +1,16 @@
 'use strict'
 
 // include some libaries
-var app = require('../package.json')
-var config = require('../config.json')
-var itemList = require('../items.json').itemlist
+var fs = require('fs')
+var jsonFile = require('jsonfile')
 var ui = require('./WS_UI')
 var scrap = require('./WS_Scrap')
 var file = require('./WS_File')
+
+// load some files
+var app = jsonFile.readFileSync('./package.json')
+var config = jsonFile.readFileSync('./config.json')
+var itemList = jsonFile.readFileSync('./items.json').itemlist
 
 // configure the UI
 ui.fontColor = config.interface.fontcolor
