@@ -1,6 +1,5 @@
 "use strict"
 
-
 var blessed = require('blessed');
 var opn = require('opn');
 
@@ -241,7 +240,7 @@ const commands = {
   'up': 'Scroll Up',
   'F5': 'Reload'
 }
-let text = ''
+var text = ''
 for (const c in commands) {
   const command = commands[c]
   text += `  {inverse}${c}{/inverse} ${command}`
@@ -257,22 +256,21 @@ const footerLeft = blessed.box({
 footerLeft.setContent(text);
 
 // the right footer
-const footerRight = blessed.box({
+const footerRight = blessed.button({
   mouse: true,
   keys: true,
   width: 'shrink',
   top: '100%-1',
-  content: 'by flofriday',
+  content: 'by {underline}flofriday{/underline}',
   right: 3,
   tags: true,
   fg: exports.fontColor,
   bg: exports.backColor
 })
 
-
 // Append objects to screen
 screen.append(background);
-screen.append(menuBar);
+ screen.append(menuBar);
 screen.append(menuBarLeft);
 screen.append(menuBarMiddle);
 screen.append(menuBarRight);
@@ -281,10 +279,8 @@ screen.append(footerRight);
 screen.append(itemList);
 screen.append(loadingIndicator);
 
-
 // Focus the itemlist
 itemList.focus();
-
 
 // flofriday clicked
 footerRight.on('click', function(data) {
@@ -296,7 +292,6 @@ footerRight.on('mouseover', function(data) {
   if (isRenderAllowed) { screen.render(); }
 });
 footerRight.on('mouseout', function(data) {
-  footerRight.setContent('by flofriday');
   if (isRenderAllowed) { screen.render(); }
 });
 
@@ -305,7 +300,6 @@ screen.key('f5', function(ch, key) {
   if (isRenderAllowed) { screen.render(); }
   refreshCallback();
 });
-
 
 // Quit webScreen at Escape, or Control-C
 screen.key(['escape', 'C-c'], function(ch, key) {

@@ -1,6 +1,6 @@
 {
   "name": "webscreen",
-  "version": "0.3.1",
+  "version": "1.0.0",
   "description": "Monitor your web right from the terminal.",
   "main": "src/app.js",
   "scripts": {

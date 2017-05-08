@@ -53,7 +53,7 @@ ui.setRefreshCallback(function () {
   scrap.loadItems()
 })
 
-// The values reload automatically every minute
+// The values reload automatically
 ui.showLoadingIndicator(true)
 scrap.loadItems()
 setInterval(function () {

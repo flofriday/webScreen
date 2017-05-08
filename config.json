@@ -8,7 +8,7 @@
     "backgroundcolor": "default",
     "bordercolor": "default",
     "accentcolor": "#009688",
-    "showborder": false
+    "showborder": true
     },
 
     "datafile":
